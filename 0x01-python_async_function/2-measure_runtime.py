@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 """defines measure_time function"""
 import asyncio
 import random
