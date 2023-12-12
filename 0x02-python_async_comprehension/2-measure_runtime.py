@@ -6,16 +6,15 @@ four times in parallel using asyncio.gather
 
 
 import time
-import asyncio
-from typing import List
+from asyncio import gather
+
 async_comprehension = __import__('1-async_comprehension.py').async_comprehension
 
 
 async def measure_runtime() -> float:
-    """measures the total runtime and return it"""
-    start_time = time.time()
-
-    await asyncio.gather(*(async_comprehension() for num in range(4)))
-
-    end_time = time.time()
-    return end_time - start_time
+    """Define the measure_runtime coroutine"""
+    startTime = time()
+    tasks = [async_comprehension() for i in range(4)]
+    await gather(*tasks)
+    endTime = time()
+    return (endTime - startTime)"""measures the total runtime and return it"""
