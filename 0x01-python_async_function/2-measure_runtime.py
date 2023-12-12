@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """defines measure_time function"""
-import asyncio
 import time
-
+import asyncio
 
 wait_n = __import__('1-concurrent_coroutines').wait_n
 
@@ -14,5 +13,4 @@ async def measure_time(n: int, max_delay: int) -> float:
     end_time = time.time()
 
     total_time = end_time - start_time
-
     return (total_time/n)
